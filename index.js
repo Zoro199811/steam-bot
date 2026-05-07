@@ -36,24 +36,23 @@ async function sendDeals() {
       .setTitle(game.name)
       .setURL(`https://store.steampowered.com/app/${game.id}`)
       .setImage(game.large_capsule_image)
-      .addFields(
-{
-  name: 'Discount',
-  value: `${game.discount_percent}%`,
-  inline: true
-},
-{
-  name: 'Old Price',
-  value: `${oldPrice} ${currency}`,
-  inline: true
-},
-{
-  name: 'New Price',
-  value: `${newPrice} ${currency}`,
-  inline: true
-}
+ .addFields(
+  {
+    name: 'Discount',
+    value: `${game.discount_percent}%`,
+    inline: true
+  },
+  {
+    name: 'Old Price',
+    value: `${oldPrice} ${currency}`,
+    inline: true
+  },
+  {
+    name: 'New Price',
+    value: `${newPrice} ${currency}`,
+    inline: true
+  }
 )
-      )
 .setColor('Green');
 
     await channel.send({ embeds: [embed] });
