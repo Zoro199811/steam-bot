@@ -30,28 +30,31 @@ async function sendDeals() {
   const oldPrice = (game.original_price / 100).toFixed(2);
    const newPrice = (game.final_price / 100).toFixed(2);
 
+   const currency = game.currency || "USD";
+
     const embed = new EmbedBuilder()
       .setTitle(game.name)
       .setURL(`https://store.steampowered.com/app/${game.id}`)
       .setImage(game.large_capsule_image)
       .addFields(
-        {
-          name: 'Discount',
-          value: `${game.discount_percent}%`,
-          inline: true
-        },
-        {
-          name: 'Old Price',
-          value: `$${oldPrice}`,
-          inline: true
-        },
-        {
-          name: 'New Price',
-          value: `$${newPrice}`,
-          inline: true
-        }
+{
+  name: 'Discount',
+  value: `${game.discount_percent}%`,
+  inline: true
+},
+{
+  name: 'Old Price',
+  value: `${oldPrice} ${currency}`,
+  inline: true
+},
+{
+  name: 'New Price',
+  value: `${newPrice} ${currency}`,
+  inline: true
+}
+)
       )
-      .setColor('Green');
+.setColor('Green');
 
     await channel.send({ embeds: [embed] });
   }
