@@ -27,8 +27,8 @@ async function sendDeals() {
   const deals = await getSteamDeals();
 
   for (const game of deals) {
-    const oldPrice = game.original_price / 100;
-    const newPrice = game.final_price / 100;
+  const oldPrice = (game.original_price / 100).toFixed(2);
+   const newPrice = (game.final_price / 100).toFixed(2);
 
     const embed = new EmbedBuilder()
       .setTitle(game.name)
