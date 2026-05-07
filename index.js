@@ -11,7 +11,7 @@ const client = new Client({
 async function getSteamDeals() {
   try {
     const res = await axios.get(
-      'https://store.steampowered.com/api/featuredcategories'
+      'https://store.steampowered.com/api/featuredcategories?cc=de&l=en'
     );
 
     return res.data.specials.items.slice(0, 5);
